@@ -1,0 +1,8 @@
+.listContainer{
+    width:80%;
+    margin-top:60px;
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(250px,1fr));
+    justify-items:stretch; 
+    gap: 10px 15px;
+}
