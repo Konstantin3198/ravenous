@@ -12,9 +12,8 @@ export default function Conclusion(){
       </p>
       <p className="lastParagraph">
         <strong>Powered</strong>by<strong>Yelp</strong> 
-        <aside>
           <YelpIcon width={30} height={30}/>
-        </aside> api.
+         api.
       </p>   
     </footer>
   );

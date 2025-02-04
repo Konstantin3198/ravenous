@@ -2,22 +2,29 @@ import React from 'react';
 import  './business.css';
 
 
-export default function Business(){
+export default function Business({name,image_url,rating,reviews,category,address}:{
+    name:string,
+    image_url:string,
+    rating:number,
+    reviews:number,
+    category:string,
+    address:string[]
+}){
   return (
     <div className="businessCard">
         <div className="ImgContainer">
-            <img src="" alt=""/>
+            <img src={image_url} alt={name}/>
         </div>
         <div className="Info">
-            <h3 className="name">MarginOtto Pizzeria</h3>
+            <h3 className="name">{name}</h3>
             <span className="infoSection">
-                <p>1010 Pandington Way</p><h3 className="emphasis">Italian</h3>
+                <p>{address[0]}</p><h4 className="emphasis">{category}</h4>
             </span>
             <span className="infoSection">
-                <p>BorderTown</p><h4 className="emphasis">4.5 stars</h4>
+                <p>{address[1]}</p><h4 className="emphasis">{rating} stars</h4>
             </span>
             <span className="infoSection">
-                <p>NY 1010</p><p>90 reviewers</p>
+                <p>{reviews} reviewers</p>
             </span>
         </div>
     </div>
