@@ -8,12 +8,12 @@ export default function Business({name,image_url,rating,reviews,category,address
     rating:number,
     reviews:number,
     category:string,
-    address:string[]
+    address:string[] 
 }){
   return (
     <div className="businessCard">
         <div className="ImgContainer">
-            <img src={image_url} alt={name}/>
+            <img src={image_url||null} alt={name}/>
         </div>
         <div className="Info">
             <h3 className="name">{name}</h3>

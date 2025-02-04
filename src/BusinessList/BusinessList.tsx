@@ -13,6 +13,7 @@ export default function BusinessList({data,error}:{
             {
                 data?.map(restaurant=>(
                    <Business 
+                    key={restaurant.id}
                     name={restaurant.name}
                     image_url={restaurant.image_url}
                     rating={restaurant.rating}
