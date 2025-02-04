@@ -4,11 +4,13 @@ import BusinessList from './BusinessList/BusinessList.tsx';
 import SearchBar from './SearchBar/SearchBar.tsx';
 import Conclusion from './Conclusion/Conclusion.tsx';
 import fetchData from './api/api.tsx';
+import sortBy from './utilities/utils.tsx';
 
 function App() {
   const [queries,setQueries]=useState({});
   const [data,setData]=useState([]);
   const [error,setError]=useState(null);
+  const [sort,setSort]=useState('best_match');
   
   const handleChange=(e:React.HandleEvent<HTMLInputElement>)=>{
     const name=e.target.name;
@@ -29,9 +31,15 @@ function App() {
     setQueries({category:'',location:''});
   }
 
+  const handleClick=(e:React.ButtonEvent<HTMLButtonElement>)=>{
+    setSort(e.target.value);
+    setData(sortBy(data,e.target.value));
+  }
+
   return (
     <>
-      <SearchBar queries={queries} handleChange={handleChange} handleSubmit={handleSubmit}/>
+      <SearchBar queries={queries} handleChange={handleChange} 
+        handleSubmit={handleSubmit} sort={sort} handleClick={handleClick}/>
       <BusinessList data={data} error={error}/>
       <Conclusion/>
     </>

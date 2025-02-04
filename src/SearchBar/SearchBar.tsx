@@ -1,11 +1,20 @@
 import React from 'react';
 import  "./searchBar.css";
 
-export default function SearchBar({queries,handleChange,handleSubmit}:{
+export default function SearchBar({queries,handleChange,handleSubmit,sort,handleClick}:{
   queries:any,
-  handleChange:(e:React.HandleEvent<HTMLInputElement>)=>void
-  handleSubmit:(e:React.FormEvent<HTMLFormElement>)=>void
+  handleChange:(e:React.HandleEvent<HTMLInputElement>)=>void,
+  handleSubmit:(e:React.FormEvent<HTMLFormElement>)=>void,
+  sort:string,
+  handleClick:(e:React.ButtonEvent<HTMLButtonElement>)=>void
 }){
+
+  const toggleFocus=(sortMethod:string,buttonValue:string)=>{
+    if(sortMethod===buttonValue){
+      return 'focusedButton';
+    }
+    return '';
+  }
 
   return (
     <header className="Header">
@@ -14,13 +23,19 @@ export default function SearchBar({queries,handleChange,handleSubmit}:{
       </section>
       <section className="searchArea">
         <div className="buttonArea">
-          <button className="filterButton">
+          <button 
+            className={`filterButton ${toggleFocus(sort,'best_match')}`} 
+            value="best_match" onClick={handleClick}>
             Best <br/> Match
           </button>
-          <button className="filterButton">
+          <button 
+            className={`filterButton ${toggleFocus(sort,'highest_rated')}`} 
+            value="highest_rated" onClick={handleClick}>
             Highest <br/> Rated
           </button>
-          <button className="filterButton">
+          <button 
+            className={`filterButton ${toggleFocus(sort,'most_reviewed')}`} 
+            value="most_reviewed" onClick={handleClick}>
             Most <br/> Reviewed
           </button>
         </div>

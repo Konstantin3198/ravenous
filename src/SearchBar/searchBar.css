@@ -54,7 +54,7 @@
     font-weight:700;
 }
 
-.filterButton:focus{
+.focusedButton{
    color: #A4813D;
    border-color: #A4813D;
 }
